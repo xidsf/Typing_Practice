@@ -1,8 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <conio.h>
 
 #define UP 72
 #define DOWN 80
@@ -19,7 +22,7 @@
 #define LZ 90
 #define LX 88
 
-int TDownstart, TDownend, TSpeedstart, TSpeedend;//½Ã°£ °ü·Ã º¯¼ö 
+int TDownstart, TDownend, TSpeedstart, TSpeedend;//ì‹œê°„ ê´€ë ¨ ë³€ìˆ˜ 
 
 enum color4
 {
@@ -48,11 +51,11 @@ void setcolor(int txt, int bg)
 
 void gotoxy(int x, int y)
 {
-    COORD pos={x,y}; //x, y ÁÂÇ¥ ¼³Á¤
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos); //Ä¿¼­ ¼³Á¤
+    COORD pos={x,y}; //x, y ì¢Œí‘œ ì„¤ì •
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos); //ì»¤ì„œ ì„¤ì •
 }
 
-void CursorView(char show)//Ä¿¼­¼û±â±â 0ÀÌ¸é ¼û±è, 1ÀÌ¸é º¸ÀÓ
+void CursorView(char show)//ì»¤ì„œìˆ¨ê¸°ê¸° 0ì´ë©´ ìˆ¨ê¹€, 1ì´ë©´ ë³´ì„
 {
 	HANDLE hConsole;
 	CONSOLE_CURSOR_INFO ConsoleCursor;
@@ -143,7 +146,7 @@ int Im[9][8] =
 	{0, 1, 1, 1, 1, 1, 1, 0}
 	};
 	
-void swap(int* x, int* y)// ¼ıÀÚ ½º¿Ò ÇÔ¼ö 
+void swap(int* x, int* y)// ìˆ«ì ìŠ¤ì™‘ í•¨ìˆ˜ 
 {
 	int temp;
 	
@@ -152,7 +155,7 @@ void swap(int* x, int* y)// ¼ıÀÚ ½º¿Ò ÇÔ¼ö
 	*y = temp;
 }
 
-void swaps(char name1[15], char name2[15]) //¹®ÀÚ¿­ ½º¿Ò ÇÔ¼ö 
+void swaps(char name1[15], char name2[15]) //ë¬¸ìì—´ ìŠ¤ì™‘ í•¨ìˆ˜ 
 {
 	char stemp[15];
 	
@@ -176,7 +179,7 @@ void WordSet()
 	strcpy(word[7], "chemical");
 	strcpy(word[8], "incident");
 	strcpy(word[9], "exhale");
-	//strcpy(word[9], "Anseonghyun"); //¾È¼ºÇö '»èÁ¦'
+	//strcpy(word[9], "Anseonghyun"); //ì•ˆì„±í˜„ 'ì‚­ì œ'
 	strcpy(word[10], "focus on");
 	strcpy(word[11], "contribute");
 	strcpy(word[12], "be involved in");
