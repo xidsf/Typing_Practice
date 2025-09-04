@@ -10,7 +10,7 @@ int speed = 1000;
 int difficulty = 3000;
 int health = 5;
 
-//³­ÀÌµµº° ´Ü¾î °³¼ö  
+//ë‚œì´ë„ë³„ ë‹¨ì–´ ê°œìˆ˜  
 const int easy = 10;
 const int normal = 15;
 const int hard = 20;
@@ -20,12 +20,12 @@ const int EX = 21;
 int healthD; //health Difficulty
 
 
-void UserFileRead()//³­ÀÌµµ ÀúÀåÇÑ °Í ÀĞ±â & µ¤¾î¾²°Å³ª Ãß°¡ÇÏ±â 
+void UserFileRead()//ë‚œì´ë„ ì €ì¥í•œ ê²ƒ ì½ê¸° & ë®ì–´ì“°ê±°ë‚˜ ì¶”ê°€í•˜ê¸° 
 {
 	char arr[100];
 	FILE* fp;
 	fp = fopen("UserMode.txt", "r");
-	if(fp == NULL)
+	if (fp == NULL)
 	{
 		fp = fopen("UserMode.txt", "w");
 		fprintf(fp, "difficulty= 10\n");
@@ -34,15 +34,15 @@ void UserFileRead()//³­ÀÌµµ ÀúÀåÇÑ °Í ÀĞ±â & µ¤¾î¾²°Å³ª Ãß°¡ÇÏ±â
 		fclose(fp);
 		fp = fopen("UserMode.txt", "r");
 	}
-	
-	fscanf(fp ,"%s %d", arr, &worddifficulty);
+
+	fscanf(fp, "%s %d", arr, &worddifficulty);
 	fscanf(fp, "%s %d", arr, &healthD);
 	fscanf(fp, "%s %d", arr, &HELLOPEN);
-	
+
 	fclose(fp);
 }
 
-void FilePrint()//³­ÀÌµµ ÀúÀåÇÑ°Í ºÒ·¯¿À±â 
+void FilePrint()//ë‚œì´ë„ ì €ì¥í•œê²ƒ ë¶ˆëŸ¬ì˜¤ê¸° 
 {
 	FILE* fp;
 	fp = fopen("UserMode.txt", "w");
@@ -52,189 +52,189 @@ void FilePrint()//³­ÀÌµµ ÀúÀåÇÑ°Í ºÒ·¯¿À±â
 	fclose(fp);
 }
 
-void Icon()//¸ŞÀÎÈ­¸é¿¡ ±ÛÀÚ ÀÔ·Â  
+void Icon()//ë©”ì¸í™”ë©´ì— ê¸€ì ì…ë ¥  
 {
 	int i, j, k;
-	
-	for(i = 0; i < 13; i++)
+
+	for (i = 0; i < 13; i++)
 	{
-		for(j = 0; j < 75; j++)
+		for (j = 0; j < 75; j++)
 		{
-			if(worddifficulty == EX) setcolor(Green, Black);
-			if(i == 0 || i == 12) printf("¡á");
-			else if((j == 0 || j == 74) && i != 0 && i != 12) printf("¡á");
+			if (worddifficulty == EX) setcolor(Green, Black);
+			if (i == 0 || i == 12) printf("â– ");
+			else if ((j == 0 || j == 74) && i != 0 && i != 12) printf("â– ");
 			else printf("  ");
 		}
 	}
-	for(k = 0; k <6; k++)
+	for (k = 0; k < 6; k++)
 	{
-		for(i = 0; i < 9; i++)
+		for (i = 0; i < 9; i++)
 		{
-			gotoxy(25*k + 5, i + 2);
-			for(j = 0; j < 8; j++)
+			gotoxy(25 * k + 5, i + 2);
+			for (j = 0; j < 8; j++)
 			{
-				if(k == 0)
+				if (k == 0)
 				{
-					if(worddifficulty == EX)setcolor(k + 1, Black);
-					if(Ta[i][j] == 1) printf("¡á");
+					if (worddifficulty == EX)setcolor(k + 1, Black);
+					if (Ta[i][j] == 1) printf("â– ");
 					else printf("  ");
 				}
-				else if(k == 1)
+				else if (k == 1)
 				{
-					if(worddifficulty == EX)setcolor(k + 3, Black);
-					if(Ja[i][j] == 1) printf("¡á");
+					if (worddifficulty == EX)setcolor(k + 3, Black);
+					if (Ja[i][j] == 1) printf("â– ");
 					else printf("  ");
 				}
-				else if(k == 2)
+				else if (k == 2)
 				{
-					if(worddifficulty == EX)setcolor(k + 3, Black);
-					if(Yeun[i][j] == 1) printf("¡á");
+					if (worddifficulty == EX)setcolor(k + 3, Black);
+					if (Yeun[i][j] == 1) printf("â– ");
 					else printf("  ");
 				}
-				else if(k == 3)
+				else if (k == 3)
 				{
-					if(worddifficulty == EX)setcolor(k + 8, Black);
-					if(Seup[i][j] == 1) printf("¡á");
+					if (worddifficulty == EX)setcolor(k + 8, Black);
+					if (Seup[i][j] == 1) printf("â– ");
 					else printf("  ");
 				}
-				else if(k == 4)
+				else if (k == 4)
 				{
-					if(worddifficulty == EX)setcolor(k + 5, Black);
-					if(Ge[i][j] == 1) printf("¡á");
+					if (worddifficulty == EX)setcolor(k + 5, Black);
+					if (Ge[i][j] == 1) printf("â– ");
 					else printf("  ");
 				}
-				else if(k == 5)
+				else if (k == 5)
 				{
-					if(worddifficulty == EX)setcolor(k+6, Black);
-					if(Im[i][j] == 1) printf("¡á");
+					if (worddifficulty == EX)setcolor(k + 6, Black);
+					if (Im[i][j] == 1) printf("â– ");
 					else printf("  ");
 					setcolor(Lgray, Black);
 				}
 			}
 		}
 	}
-	
-	for(i = 0; i < 13; i++)
+
+	for (i = 0; i < 13; i++)
 	{
 		gotoxy(60, i + 15);
-		for(j = 0; j < 10; j++)
+		for (j = 0; j < 10; j++)
 		{
-			if(i == 0 || i == 12) printf("¡á");
-			else if((i != 0 && i != 12) && j == 0 || j ==9)printf("¡á");
+			if (i == 0 || i == 12) printf("â– ");
+			else if ((i != 0 && i != 12) && j == 0 || j == 9)printf("â– ");
 			else printf("  ");
 		}
 	}
 }
 
-int Start()//¸ŞÀÎ È­¸é È­»ìÇ¥ ÀÌµ¿
+int Start()//ë©”ì¸ í™”ë©´ í™”ì‚´í‘œ ì´ë™
 {
 	Icon();
 	int hit, i;
 	int Location = 17;
-	
+
 	gotoxy(65, 17);
 	printf("Game Start");
 	gotoxy(65, 21);
 	printf("Game Option");
 	gotoxy(65, 25);
-	printf("Exit Game"); 
+	printf("Exit Game");
 	gotoxy(63, 17);
-	printf("¢º");
-	
+	printf("â–¶");
+
 	gotoxy(60, 30);
-	printf("ÀÌµ¿ : ¡æ¡ç¡è¡é¹æÇâÅ°");
+	printf("ì´ë™ : â†’â†â†‘â†“ë°©í–¥í‚¤");
 	gotoxy(60, 31);
-	printf("°áÁ¤Å° : ENTER or Z");
+	printf("ê²°ì •í‚¤ : ENTER or Z");
 	gotoxy(60, 32);
-	printf("Ãë¼ÒÅ° : ESC or X");
+	printf("ì·¨ì†Œí‚¤ : ESC or X");
 	gotoxy(56, 33);
-	printf("ÇÑ¿µÅ° ´©¸£±â ±İÁö(¹ö±×ÀÖÀ½)");
-	
-	while(1)//Ä¿¼­ ÀÌµ¿ 
+	printf("í•œì˜í‚¤ ëˆ„ë¥´ê¸° ê¸ˆì§€(ë²„ê·¸ìˆìŒ)");
+
+	while (1)//ì»¤ì„œ ì´ë™ 
 	{
-		for(i = 0; i < 3; i++)
+		for (i = 0; i < 3; i++)
 		{
-			if(i == 0) setcolor(Red, Black);
-			else if(i == 1) setcolor(Blue, Black);
-			else if(i == 2) setcolor(Lgray, Black);
+			if (i == 0) setcolor(Red, Black);
+			else if (i == 1) setcolor(Blue, Black);
+			else if (i == 2) setcolor(Lgray, Black);
 			gotoxy(65, Location);
-			if(Location == 17) printf("Game Start");
-			else if(Location == 21) printf("Game Option");
-			else if(Location == 25) printf("Exit Game");
-			Sleep(20);	
+			if (Location == 17) printf("Game Start");
+			else if (Location == 21) printf("Game Option");
+			else if (Location == 25) printf("Exit Game");
+			Sleep(20);
 		}
-		
-		if(kbhit())
+
+		if (_kbhit())
 		{
-			hit = getch();
-			if(hit == 224)
+			hit = _getch();
+			if (hit == 224)
 			{
-				hit = getch();
+				hit = _getch();
 				gotoxy(63, Location);
 				printf("  ");
-				switch(hit)
+				switch (hit)
 				{
-					case DOWN:
-						Location = Location + 4;
-						if(Location == 29) Location = 17;
-						break;
-					case UP:
-						Location = Location - 4;
-						if(Location == 13) Location = 25;
-						break;
-					default:
-						printf("bug");
-						break;
+				case DOWN:
+					Location = Location + 4;
+					if (Location == 29) Location = 17;
+					break;
+				case UP:
+					Location = Location - 4;
+					if (Location == 13) Location = 25;
+					break;
+				default:
+					printf("bug");
+					break;
 				}
 				gotoxy(63, Location);
-				printf("¢º");
+				printf("â–¶");
 			}
-			else if(hit == ENTER || hit == Z || hit == LZ)
+			else if (hit == ENTER || hit == Z || hit == LZ)
 			{
 				system("cls");
-				return (Location -1)/4 - 3;
+				return (Location - 1) / 4 - 3;
 			}
 		}
 	}
 }
 
-void Wordclear()//´Ü¾î ÃÊ±âÈ­ 
+void Wordclear()//ë‹¨ì–´ ì´ˆê¸°í™” 
 {
 	int i, j;
-	for(i = 0; i < 100 ; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for(j = 0; j < 20; j++)//È­¸éÀÇ ´Ü¾îµé ÃÊ±âÈ­ 
+		for (j = 0; j < 20; j++)//í™”ë©´ì˜ ë‹¨ì–´ë“¤ ì´ˆê¸°í™” 
 		{
 			showingword[i][j] = '\0';
 		}
 	}
-	for(i = 0; i < 100 ; i++)//È­¸éÀÇ ´Ü¾îµéÀÇ À§Ä¡ÁÂÇ¥ ÃÊ±âÈ­ 
+	for (i = 0; i < 100; i++)//í™”ë©´ì˜ ë‹¨ì–´ë“¤ì˜ ìœ„ì¹˜ì¢Œí‘œ ì´ˆê¸°í™” 
 	{
-		for(j = 0; j < 2; j++)
+		for (j = 0; j < 2; j++)
 		{
 			locate[i][j] = 0;
 		}
 	}
-	for(i = 0; i < 20; i++)//ÀÔ·ÂµÇ¾î ÀÖ´Â ´Ü¾î ÃÊ±âÈ­ 
+	for (i = 0; i < 20; i++)//ì…ë ¥ë˜ì–´ ìˆëŠ” ë‹¨ì–´ ì´ˆê¸°í™” 
 	{
 		compareword[i] = '\0';
 	}
 }
 
-int Timer()//·£´ı ´Ü¾î Ãâ·Â ¹× ½Ã°£ÀÌ Áö³¯ ¶§ ¸¶´Ù ³»·Á¿À±â 
+int Timer()//ëœë¤ ë‹¨ì–´ ì¶œë ¥ ë° ì‹œê°„ì´ ì§€ë‚  ë•Œ ë§ˆë‹¤ ë‚´ë ¤ì˜¤ê¸° 
 {
 	int i, j;
-	TDownend = clock();//´Ü¾î »ı¼º ¼Óµµ 
-	TSpeedend = clock();//³»·Á¿À´Â ¼Óµµ 
-	if(TSpeedend - TSpeedstart >= speed)//³»·Á¿À±â 
+	TDownend = clock();//ë‹¨ì–´ ìƒì„± ì†ë„ 
+	TSpeedend = clock();//ë‚´ë ¤ì˜¤ëŠ” ì†ë„ 
+	if (TSpeedend - TSpeedstart >= speed)//ë‚´ë ¤ì˜¤ê¸° 
 	{
 		CursorView(0);
-		for(i = 0; i < 100; i++)
+		for (i = 0; i < 100; i++)
 		{
-			if(locate[i][0] != 0)
+			if (locate[i][0] != 0)
 			{
-				if(healthD == 2) setcolor(Lred, Black);
-				else if(healthD == 3) setcolor(Red, Black);
+				if (healthD == 2) setcolor(Lred, Black);
+				else if (healthD == 3) setcolor(Red, Black);
 				gotoxy(locate[i][0], locate[i][1]);
 				printf("                    ");
 				locate[i][1]++;
@@ -246,14 +246,14 @@ int Timer()//·£´ı ´Ü¾î Ãâ·Â ¹× ½Ã°£ÀÌ Áö³¯ ¶§ ¸¶´Ù ³»·Á¿À±â
 		TSpeedstart = clock();
 		CursorView(1);
 	}
-	
-	if(TDownend - TDownstart >= difficulty)
+
+	if (TDownend - TDownstart >= difficulty)
 	{
 		CursorView(0);
-		if(healthD == 2) setcolor(Lred, Black);
-		else if(healthD == 3) setcolor(Red, Black);
-		strcpy(showingword[wordorder], word[rand() % WORD]);//·£´ı ´Ü¾î ¼³Á¤ 
-		locate[wordorder][0] = (rand() % 100)+ 10;//·£´ı À§Ä¡ ¼³Á¤ 
+		if (healthD == 2) setcolor(Lred, Black);
+		else if (healthD == 3) setcolor(Red, Black);
+		strcpy(showingword[wordorder], word[rand() % WORD]);//ëœë¤ ë‹¨ì–´ ì„¤ì • 
+		locate[wordorder][0] = (rand() % 100) + 10;//ëœë¤ ìœ„ì¹˜ ì„¤ì • 
 		gotoxy(locate[wordorder][0], 0);
 		printf("%s", showingword[wordorder]);
 		gotoxy(wordlocate, 33);
@@ -262,14 +262,15 @@ int Timer()//·£´ı ´Ü¾î Ãâ·Â ¹× ½Ã°£ÀÌ Áö³¯ ¶§ ¸¶´Ù ³»·Á¿À±â
 		CursorView(1);
 	}
 	setcolor(Lgray, Black);
+	return 0;
 }
 
-void WriteRecord()//±â·Ï ÀúÀå 
+void WriteRecord()//ê¸°ë¡ ì €ì¥ 
 {
 	int i, j, a;
 	FILE* fp;
 	fp = fopen("scoreboard.txt", "r");
-	if(fp == NULL)
+	if (fp == NULL)
 	{
 		fclose(fp);
 		fp = fopen("scoreboard.txt", "w");
@@ -278,52 +279,56 @@ void WriteRecord()//±â·Ï ÀúÀå
 		fp = fopen("scoreboard.txt", "r");
 	}
 	fscanf(fp, "%d", &a);
-	
-	int record_healthD[a + 1];
-	char record_difficulty[a + 1][15];
-	int record_score[a + 1];
-	
-	for(i = 0; i < a; i++)
+
+	int* record_healthD = (int*)malloc(sizeof(int) * (a + 1));
+	char** record_difficulty = (char**)malloc(sizeof(char*) * (a + 1));
+	for (size_t i = 0; i < a + 1; i++)
+	{
+		record_difficulty[i] = (char*)malloc(sizeof(char) * 15);
+	}
+	int* record_score = (int*)malloc(sizeof(int) * (a + 1));
+
+	for (i = 0; i < a; i++)
 	{
 		fscanf(fp, "%d %s %d", &record_healthD[i], record_difficulty[i], &record_score[i]);
 	}
-	
+
 	record_healthD[a] = healthD;
-	if(worddifficulty == easy) strcpy(record_difficulty[a], "easy");
-	else if(worddifficulty == normal) strcpy(record_difficulty[a], "normal");
-	else if(worddifficulty == hard) strcpy(record_difficulty[a], "hard");
-	else if(worddifficulty == impossible) strcpy(record_difficulty[a], "impossible");
-	else if(worddifficulty == hell) strcpy(record_difficulty[a], "HELL");
+	if (worddifficulty == easy) strcpy(record_difficulty[a], "easy");
+	else if (worddifficulty == normal) strcpy(record_difficulty[a], "normal");
+	else if (worddifficulty == hard) strcpy(record_difficulty[a], "hard");
+	else if (worddifficulty == impossible) strcpy(record_difficulty[a], "impossible");
+	else if (worddifficulty == hell) strcpy(record_difficulty[a], "HELL");
 	record_score[a] = score;
-	
-	
-	for(j = 0; j < a; j++)//¹öºíÁ¤·Ä: ³»¸²Â÷¼øÀ¸·Î Á¤·Ä 
+
+
+	for (j = 0; j < a; j++)//ë²„ë¸”ì •ë ¬: ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ 
 	{
-		for(i = 0; i < a - j; i++)
+		for (i = 0; i < a - j; i++)
 		{
-			if(record_score[i] < record_score[i + 1]) 
+			if (record_score[i] < record_score[i + 1])
 			{
-				swap(&record_healthD[i], &record_healthD[i+1]);//Ã¼·Â°¨¼Ò ½º¿Ò 
-				swaps(record_difficulty[i], record_difficulty[i+1]);//³­ÀÌµµ ½º¿Ò 
-				swap(&record_score[i], &record_score[i+1]);//Á¡¼ö ½º¿Ò 
+				swap(&record_healthD[i], &record_healthD[i + 1]);//ì²´ë ¥ê°ì†Œ ìŠ¤ì™‘ 
+				swaps(record_difficulty[i], record_difficulty[i + 1]);//ë‚œì´ë„ ìŠ¤ì™‘ 
+				swap(&record_score[i], &record_score[i + 1]);//ì ìˆ˜ ìŠ¤ì™‘ 
 			}
 		}
 	}
-	
+
 	fclose(fp);
 	fp = fopen("scoreboard.txt", "w");
-	if(a == 10)
+	if (a == 10)
 	{
 		fprintf(fp, "10\n");
-		for(i = 0; i < 10; i++)
+		for (i = 0; i < 10; i++)
 		{
 			fprintf(fp, "%d %s %d\n", record_healthD[i], record_difficulty[i], record_score[i]);
 		}
 	}
-	else if(a < 10)
+	else if (a < 10)
 	{
 		fprintf(fp, "%d\n", a + 1);
-		for(i = 0; i < a + 1; i++)
+		for (i = 0; i < a + 1; i++)
 		{
 			fprintf(fp, "%d %s %d\n", record_healthD[i], record_difficulty[i], record_score[i]);
 		}
@@ -331,97 +336,97 @@ void WriteRecord()//±â·Ï ÀúÀå
 	fclose(fp);
 }
 
-int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ 
+int Game()//ë¬¸ì ì…ë ¥ ë° í™•ì¸ 
 {
 	int i, j, key, initialdifficulty;
 	int compare = 0;
 	int pause = 68;
 	char button;
-	
-	if(worddifficulty == easy)
+
+	if (worddifficulty == easy)
 	{
 		score = 0;
 		difficulty = 5000;
 		speed = 1000;
 	}
-	else if(worddifficulty == normal) //ÃÊ±â ³­ÀÌµµ 
+	else if (worddifficulty == normal) //ì´ˆê¸° ë‚œì´ë„ 
 	{
 		score = 100;
 		difficulty = 3000;
 		speed = 800;
 	}
-	else if(worddifficulty == hard)
+	else if (worddifficulty == hard)
 	{
 		score = 250;
 		difficulty = 2500;
 		speed = 600;
 	}
-	else if(worddifficulty == impossible)
+	else if (worddifficulty == impossible)
 	{
 		score = 450;
 		difficulty = 1500;
 		speed = 500;
 	}
-	else if(worddifficulty == hell)
+	else if (worddifficulty == hell)
 	{
 		score = 750;
 		difficulty = 1000;
 		speed = 400;
 	}
-	else if(worddifficulty == EX)
+	else if (worddifficulty == EX)
 	{
 		speed = 100;
 		difficulty = 3000;
 	}
 	initialdifficulty = worddifficulty;
-	
-	
-	START:
+
+
+START:
 	Wordclear();
 	gotoxy(0, 30);
-	
-	for(i = 0; i < 150; i++)
+
+	for (i = 0; i < 150; i++)
 	{
 		setcolor(Blue, Black);
 		printf("~");
 		setcolor(Lgray, Black);
 	}
-	
+
 	gotoxy(10, 33);
-	printf("ÀÔ·Â : ");
+	printf("ì…ë ¥ : ");
 	gotoxy(17, 34);
 	printf("********************");
 	gotoxy(130, 0);
 	printf("HP : ");
-	for(j = 0; j < health; j++)
+	for (j = 0; j < health; j++)
 	{
-		printf("¡á");
+		printf("â– ");
 	}
-	for(j = 0; j < 5-health ; j++)
+	for (j = 0; j < 5 - health; j++)
 	{
-		printf("¡à");
+		printf("â–¡");
 	}
-	
+
 	gotoxy(130, 1);
-	printf("Á¡¼ö: %d", score);
+	printf("ì ìˆ˜: %d", score);
 	gotoxy(130, 2);
-	printf("³­ÀÌµµ : ");
-	if(worddifficulty == easy) printf("EASY"); 
-	else if(worddifficulty == normal) printf("NORMAL");
-	else if(worddifficulty == hard) printf("HARD");
-	else if(worddifficulty == impossible) 
+	printf("ë‚œì´ë„ : ");
+	if (worddifficulty == easy) printf("EASY");
+	else if (worddifficulty == normal) printf("NORMAL");
+	else if (worddifficulty == hard) printf("HARD");
+	else if (worddifficulty == impossible)
 	{
 		setcolor(Yellow, Black);
 		printf("IMPOSSIBLE");
 		setcolor(Lgray, Black);
 	}
-	else if(worddifficulty == hell)
+	else if (worddifficulty == hell)
 	{
 		setcolor(Red, Black);
 		printf("HELL");
 		setcolor(Lgray, Black);
 	}
-	else if(worddifficulty == EX)
+	else if (worddifficulty == EX)
 	{
 		setcolor(Blue, Black);
 		printf("E");
@@ -429,72 +434,72 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 		printf("X");
 		setcolor(Lgray, Black);
 	}
-	
+
 	TDownstart = clock();
 	TSpeedstart = clock();
 	CursorView(1);
 	gotoxy(17, 33);
-	while(1)
+	while (1)
 	{
-		if(kbhit())
+		if (_kbhit())
 		{
-			key = getch();
+			key = _getch();
 			button = key;
-			if(key == ENTER)//¿£ÅÍÅ° 
+			if (key == ENTER)//ì—”í„°í‚¤ 
 			{
-				for(i = 0; i < 100; i++)
+				for (i = 0; i < 100; i++)
 				{
-					compare = strcmp(showingword[i], compareword);//ÀÔ·Â´Ü¾î¿Í Ç¥½ÃµÇ¾îÀÖ´Â ¹®ÀÚ¿­À» ºñ±³ 
-					if(compare == 0 && showingword[i][0] != '\0')//¸¸¾à ¸Â´Ù¸é 
+					compare = strcmp(showingword[i], compareword);//ì…ë ¥ë‹¨ì–´ì™€ í‘œì‹œë˜ì–´ìˆëŠ” ë¬¸ìì—´ì„ ë¹„êµ 
+					if (compare == 0 && showingword[i][0] != '\0')//ë§Œì•½ ë§ë‹¤ë©´ 
 					{
 						printf("\a");
 						CursorView(0);
-						if(strcmp(showingword[i], "deal with something") == 0) score = score + (10 * healthD);//Ãß°¡ Á¡¼ö 
-						else if(strcmp(showingword[i], "be involved in") == 0) score = score + (10 * healthD);
-						else if(strcmp(showingword[i], "at the same time") == 0) score = score + (10 * healthD);
-						else if(strcmp(showingword[i], "take part in") == 0) score = score + (10 * healthD);
-						else if(strcmp(showingword[i], "instead of") == 0) score = score + (10 * healthD);
-						else if(strcmp(showingword[i], "according to") == 0) score = score + (10 * healthD);
-						for(j = 0; j < 20; j++)//¾ø¾Ø ´Ü¾îÀÇ ÃÊ±âÈ­ 
+						if (strcmp(showingword[i], "deal with something") == 0) score = score + (10 * healthD);//ì¶”ê°€ ì ìˆ˜ 
+						else if (strcmp(showingword[i], "be involved in") == 0) score = score + (10 * healthD);
+						else if (strcmp(showingword[i], "at the same time") == 0) score = score + (10 * healthD);
+						else if (strcmp(showingword[i], "take part in") == 0) score = score + (10 * healthD);
+						else if (strcmp(showingword[i], "instead of") == 0) score = score + (10 * healthD);
+						else if (strcmp(showingword[i], "according to") == 0) score = score + (10 * healthD);
+						for (j = 0; j < 20; j++)//ì—†ì•¤ ë‹¨ì–´ì˜ ì´ˆê¸°í™” 
 						{
 							showingword[i][j] = '\0';
 						}
-						gotoxy(locate[i][0], locate[i][1]);//´Ü¾î Á¦°Å 
+						gotoxy(locate[i][0], locate[i][1]);//ë‹¨ì–´ ì œê±° 
 						printf("                    ");
 						locate[i][0] = 0;
 						locate[i][1] = 0;
-						score = score + (10 * healthD);//Á¡¼ö »ó½Â 
-						wordquantity++;//ÀÔ·ÂÇÑ ´Ü¾î °¹¼ö Áõ°¡ 
+						score = score + (10 * healthD);//ì ìˆ˜ ìƒìŠ¹ 
+						wordquantity++;//ì…ë ¥í•œ ë‹¨ì–´ ê°¯ìˆ˜ ì¦ê°€ 
 						gotoxy(130, 1);
 						printf("               ");
 						gotoxy(130, 1);
-						printf("Á¡¼ö: %d", score);
+						printf("ì ìˆ˜: %d", score);
 						CursorView(1);
 						break;
 					}
 				}
-				for(j = 0; j < 20; j++)
+				for (j = 0; j < 20; j++)
 				{
-					compareword[j] = '\0';//ÀÔ·ÂÇÑ ´Ü¾î ¾ø¾Ö±â 
+					compareword[j] = '\0';//ì…ë ¥í•œ ë‹¨ì–´ ì—†ì• ê¸° 
 				}
 				wordlocate = 17;
 				gotoxy(wordlocate, 33);
 				printf("                       ");
 				gotoxy(wordlocate, 33);
 			}
-			else if(key == BACKSPACE && compareword[0] != '\0' && wordlocate >= 18)//¹é½ºÆäÀÌ½º
+			else if (key == BACKSPACE && compareword[0] != '\0' && wordlocate >= 18)//ë°±ìŠ¤í˜ì´ìŠ¤
 			{
 				wordlocate--;
 				compareword[wordlocate - 17] = '\0';
 				gotoxy(wordlocate, 33);
 				printf(" ");
 				gotoxy(wordlocate, 33);
-				if(wordlocate == 16)
+				if (wordlocate == 16)
 				{
 					gotoxy(17, 33);
 				}
 			}
-			else if(key == ESC)//ÀÏ½Ã Á¤Áö 
+			else if (key == ESC)//ì¼ì‹œ ì •ì§€ 
 			{
 				CursorView(0);
 				gotoxy(80, 31);
@@ -505,23 +510,23 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 				gotoxy(90, 32);
 				printf("RETURN MENU");
 				gotoxy(68, 32);
-				printf("¢¹");
-				while(1)//Ä¿¼­ÀÌµ¿ 
+				printf("â–·");
+				while (1)//ì»¤ì„œì´ë™ 
 				{
-					button = getch();
-					if(button == RIGHT || button == LEFT)
+					button = _getch();
+					if (button == RIGHT || button == LEFT)
 					{
 						gotoxy(pause, 32);
 						printf("  ");
-						if(pause == 68) pause = 88;
-						else if(pause == 88) pause = 68;
+						if (pause == 68) pause = 88;
+						else if (pause == 88) pause = 68;
 						gotoxy(pause, 32);
-						printf("¢¹");
+						printf("â–·");
 					}
-					else if(button == Z || button == ENTER || button == LZ)
+					else if (button == Z || button == ENTER || button == LZ)
 					{
 						setcolor(Lgray, Black);
-						if(pause == 68)
+						if (pause == 68)
 						{
 							CursorView(1);
 							gotoxy(80, 31);
@@ -533,7 +538,7 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 							gotoxy(wordlocate, 33);
 							break;
 						}
-						else if(pause == 88)//°ÔÀÓ ³ª°¡±â 
+						else if (pause == 88)//ê²Œì„ ë‚˜ê°€ê¸° 
 						{
 							pause = 68;
 							goto PAUSEEXIT;
@@ -541,9 +546,9 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 					}
 				}
 			}
-			else if(key != BACKSPACE)//´Ü¾î ÀÔ·Â(¹é½ºÆäÀÌ½º ÀÔ·Â ¹æÁö->¹é½ºÆäÀÌ½º¿¡ Á¶°ÇÀÌ Ãß°¡·Î ÀÖ±â ¶§¹®¿¡) 
+			else if (key != BACKSPACE)//ë‹¨ì–´ ì…ë ¥(ë°±ìŠ¤í˜ì´ìŠ¤ ì…ë ¥ ë°©ì§€->ë°±ìŠ¤í˜ì´ìŠ¤ì— ì¡°ê±´ì´ ì¶”ê°€ë¡œ ìˆê¸° ë•Œë¬¸ì—) 
 			{
-				if(compareword[19] == '\0')
+				if (compareword[19] == '\0')
 				{
 					compareword[wordlocate - 17] = button;
 					wordlocate++;
@@ -551,77 +556,77 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 				}
 			}
 		}
-		
-		Timer(); // ³»·Á¿À±â+»õ·Î¿î ´Ü¾î Ãß°¡ 
-		
-		if(wordquantity == worddifficulty)//´Ü¾î¸¦ ÀÏÁ¤ °³¼ö¸¦ ¸·À¸¸é ³­ÀÌµµ »ó½Â 
+
+		Timer(); // ë‚´ë ¤ì˜¤ê¸°+ìƒˆë¡œìš´ ë‹¨ì–´ ì¶”ê°€ 
+
+		if (wordquantity == worddifficulty)//ë‹¨ì–´ë¥¼ ì¼ì • ê°œìˆ˜ë¥¼ ë§‰ìœ¼ë©´ ë‚œì´ë„ ìƒìŠ¹ 
 		{
 			wordorder = 0;
-			if(worddifficulty == easy) worddifficulty = normal;
-			else if(worddifficulty == normal) worddifficulty = hard;
-			else if(worddifficulty == hard) worddifficulty = impossible;
-			else if(worddifficulty == impossible) worddifficulty = hell;
-			else if(worddifficulty == hell) goto HELLCLEAR;
-			else if(worddifficulty == EX) goto EXCLEAR;
+			if (worddifficulty == easy) worddifficulty = normal;
+			else if (worddifficulty == normal) worddifficulty = hard;
+			else if (worddifficulty == hard) worddifficulty = impossible;
+			else if (worddifficulty == impossible) worddifficulty = hell;
+			else if (worddifficulty == hell) goto HELLCLEAR;
+			else if (worddifficulty == EX) goto EXCLEAR;
 			Wordclear();
-			if(worddifficulty == normal)
+			if (worddifficulty == normal)
 			{
 				speed = 800;
 				difficulty = 3000;
 			}
-			else if(worddifficulty == hard)
+			else if (worddifficulty == hard)
 			{
 				speed = 600;
 				difficulty = 2500;
 			}
-			else if(worddifficulty == impossible)
+			else if (worddifficulty == impossible)
 			{
 				speed = 500;
 				difficulty = 1500;
 			}
-			else if(worddifficulty == hell)
+			else if (worddifficulty == hell)
 			{
 				speed = 400;
 				difficulty = 1000;
 			}
 			system("cls");
 			wordquantity = 0;
-			for(i = 0; i < 3; i++)
+			for (i = 0; i < 3; i++)
 			{
 				CursorView(0);
 				gotoxy(70, 15);
-				if(worddifficulty == normal) printf("NEXT LEVEL : NORMAL");
-				else if(worddifficulty == hard) printf("NEXT LEVEL : HARD");
-				else if(worddifficulty == impossible) printf("NEXT LEVEL : IMPOSSIBLE");
-				else if(worddifficulty == hell) printf("NEXT LEVEL : HELL");
+				if (worddifficulty == normal) printf("NEXT LEVEL : NORMAL");
+				else if (worddifficulty == hard) printf("NEXT LEVEL : HARD");
+				else if (worddifficulty == impossible) printf("NEXT LEVEL : IMPOSSIBLE");
+				else if (worddifficulty == hell) printf("NEXT LEVEL : HELL");
 				Sleep(500);
 				gotoxy(70, 15);
 				printf("                       ");
 				Sleep(500);
 			}
-			while(1)//SleepÇÔ¼ö µ¿¾È ¹öÆÛ¿¡ ÀÔ·ÂµÈ °ª ¹Ş±â 
+			while (1)//Sleepí•¨ìˆ˜ ë™ì•ˆ ë²„í¼ì— ì…ë ¥ëœ ê°’ ë°›ê¸° 
 			{
-				if(kbhit())
+				if (_kbhit())
 				{
-					getch();
+					_getch();
 					continue;
 				}
 				break;
 			}
 			CursorView(1);
-			goto START;//Ã³À½À¸·Î µ¹¾Æ°¡±â 
+			goto START;//ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°€ê¸° 
 		}
-		
-		if(worddifficulty == EX && locate[99][1] == 30)//EX¸ğµå °ÔÀÓ¿À¹ö 
+
+		if (worddifficulty == EX && locate[99][1] == 30)//EXëª¨ë“œ ê²Œì„ì˜¤ë²„ 
 		{
 			goto GAMEOVER;
 		}
-		for(i = 0; i < 100; i++)//´Ü¾î°¡ ¸Ç ¹Ø¿¡ ´ê¾Ò´ÂÁö È®ÀÎ 
+		for (i = 0; i < 100; i++)//ë‹¨ì–´ê°€ ë§¨ ë°‘ì— ë‹¿ì•˜ëŠ”ì§€ í™•ì¸ 
 		{
-			if(locate[i][1] == 30)
+			if (locate[i][1] == 30)
 			{
 				CursorView(0);
-				for(j = 0; j < 20; j++)//È­¸éÀÇ ´Ü¾î »èÁ¦ ÈÄ Ã¼·Â °¨¼Ò 
+				for (j = 0; j < 20; j++)//í™”ë©´ì˜ ë‹¨ì–´ ì‚­ì œ í›„ ì²´ë ¥ ê°ì†Œ 
 				{
 					showingword[i][j] = '\0';
 				}
@@ -630,28 +635,28 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 				locate[i][0] = 0;
 				locate[i][1] = 0;
 				gotoxy(0, 30);
-				for(i = 0; i < 150; i++)
+				for (i = 0; i < 150; i++)
 				{
 					setcolor(Blue, Black);
 					printf("~");
 					setcolor(Lgray, Black);
 				}
-				
+
 				health = health - healthD;
 				gotoxy(130, 0);
 				printf("HP : ");
-				if(health < 0) health = 0;
-				if(worddifficulty == EX) health = 5; //EX¸ğµåÀÌ¸é Ã¼·Â 5 À¯Áö 
-				for(j = 0; j < health; j++)
+				if (health < 0) health = 0;
+				if (worddifficulty == EX) health = 5; //EXëª¨ë“œì´ë©´ ì²´ë ¥ 5 ìœ ì§€ 
+				for (j = 0; j < health; j++)
 				{
-					printf("¡á");
+					printf("â– ");
 				}
-				for(j = 0; j < 5-health ; j++)
+				for (j = 0; j < 5 - health; j++)
 				{
-					printf("¡à");
+					printf("â–¡");
 				}
 				CursorView(1);
-				if(health <= 0) 
+				if (health <= 0)
 				{
 					goto GAMEOVER;
 				}
@@ -660,129 +665,129 @@ int Game()//¹®ÀÚ ÀÔ·Â ¹× È®ÀÎ
 			}
 		}
 	}
-	
-	GAMEOVER://°ÔÀÓ¿À¹ö 
-		setcolor(Magenta, Black);
-		gotoxy(60, 14);
-		printf("¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à");
-		gotoxy(60, 15);
-		printf("¡à        Game  Over        ¡à");
-		gotoxy(60, 16);
-		printf("¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à");
-		CursorView(0);
-		gotoxy(60, 17);
-		printf("Press 'ESC' to exit");
-		setcolor(Lgray, Black);
-		WriteRecord();
-		while(getch() != ESC){
-		}
-	PAUSEEXIT://ÀÏ½ÃÁ¤Áö·Î ³ª°¥ ½Ã 
-		CursorView(0);
-		system("cls");
-		Wordclear();
-		score = 0;
-		health = 5;
-		wordquantity = 0;
-		wordlocate = 17;
-		worddifficulty = initialdifficulty;
-		return 0;
-	
-	HELLCLEAR://HELL³­ÀÌµµ Å¬¸®¾î 
-		CursorView(0);
-		system("cls");
-		gotoxy(60, 30);
-		setcolor(Magenta, Black);
-		gotoxy(60, 14);
-		printf("¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à");
-		gotoxy(60, 15);
-		printf("¡à        HEll CLEAR        ¡à");
-		gotoxy(60, 16);
-		printf("¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à¡à");
-		CursorView(0);
-		gotoxy(60, 17);
-		printf("Press 'ESC' to exit");
-		while(getch() != ESC){
-		}
-		setcolor(Lgray, Black);
-		wordlocate = 17;
-		health = 5;
-		HELLOPEN = 1;
-		FilePrint();//HELLOPEN±â·Ï ÀúÀå 
-		WriteRecord();//±â·Ï ÀúÀå 
-		system("cls");
-		Wordclear();//´Ü¾î ÃÊ±âÈ­ 
-		score = 0;
-		wordquantity = 0;
-		worddifficulty = initialdifficulty;
-		return 0;
-	
-	EXCLEAR://EX¸ğµå Å¬¸®¾î 
-		CursorView(0);
-		system("cls");
-		gotoxy(60, 30);
-		setcolor(Blue, Black);
-		printf("EX");
-		setcolor(Green, Black);
-		printf("Clear");
-		setcolor(Yellow, Black);
-		printf("!!!!!");
-		setcolor(White, Black);
-		gotoxy(60, 31);
-		printf("¡ØEX½ºÅ×ÀÌÁö´Â ¼û°ÜÁø Ãß°¡ ½ºÅ×ÀÌÁö ÀÔ´Ï´Ù.¡Ø");
-		gotoxy(60, 32);
-		printf("Press 'ESC' to exit");
-		while(getch() != ESC){
-		}
-		wordlocate = 17;
-		setcolor(Lgray, Black);
-		system("cls");
-		wordquantity = 0;
-		Wordclear();
-		return 0; 
+
+GAMEOVER://ê²Œì„ì˜¤ë²„ 
+	setcolor(Magenta, Black);
+	gotoxy(60, 14);
+	printf("â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡");
+	gotoxy(60, 15);
+	printf("â–¡        Game  Over        â–¡");
+	gotoxy(60, 16);
+	printf("â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡");
+	CursorView(0);
+	gotoxy(60, 17);
+	printf("Press 'ESC' to exit");
+	setcolor(Lgray, Black);
+	WriteRecord();
+	while (_getch() != ESC) {
+	}
+PAUSEEXIT://ì¼ì‹œì •ì§€ë¡œ ë‚˜ê°ˆ ì‹œ 
+	CursorView(0);
+	system("cls");
+	Wordclear();
+	score = 0;
+	health = 5;
+	wordquantity = 0;
+	wordlocate = 17;
+	worddifficulty = initialdifficulty;
+	return 0;
+
+HELLCLEAR://HELLë‚œì´ë„ í´ë¦¬ì–´ 
+	CursorView(0);
+	system("cls");
+	gotoxy(60, 30);
+	setcolor(Magenta, Black);
+	gotoxy(60, 14);
+	printf("â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡");
+	gotoxy(60, 15);
+	printf("â–¡        HEll CLEAR        â–¡");
+	gotoxy(60, 16);
+	printf("â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡â–¡");
+	CursorView(0);
+	gotoxy(60, 17);
+	printf("Press 'ESC' to exit");
+	while (_getch() != ESC) {
+	}
+	setcolor(Lgray, Black);
+	wordlocate = 17;
+	health = 5;
+	HELLOPEN = 1;
+	FilePrint();//HELLOPENê¸°ë¡ ì €ì¥ 
+	WriteRecord();//ê¸°ë¡ ì €ì¥ 
+	system("cls");
+	Wordclear();//ë‹¨ì–´ ì´ˆê¸°í™” 
+	score = 0;
+	wordquantity = 0;
+	worddifficulty = initialdifficulty;
+	return 0;
+
+EXCLEAR://EXëª¨ë“œ í´ë¦¬ì–´ 
+	CursorView(0);
+	system("cls");
+	gotoxy(60, 30);
+	setcolor(Blue, Black);
+	printf("EX");
+	setcolor(Green, Black);
+	printf("Clear");
+	setcolor(Yellow, Black);
+	printf("!!!!!");
+	setcolor(White, Black);
+	gotoxy(60, 31);
+	printf("â€»EXìŠ¤í…Œì´ì§€ëŠ” ìˆ¨ê²¨ì§„ ì¶”ê°€ ìŠ¤í…Œì´ì§€ ì…ë‹ˆë‹¤.â€»");
+	gotoxy(60, 32);
+	printf("Press 'ESC' to exit");
+	while (_getch() != ESC) {
+	}
+	wordlocate = 17;
+	setcolor(Lgray, Black);
+	system("cls");
+	wordquantity = 0;
+	Wordclear();
+	return 0;
 }
 
 void HowToPlay()//GameOption.HowToPlay
 {
-	int i; 
+	int i;
 	gotoxy(0, 30);
-	for(i = 0; i < 150; i++)
+	for (i = 0; i < 150; i++)
 	{
 		printf("~");
 	}
 	gotoxy(10, 33);
-	printf("ÀÔ·Â : ");
-	
+	printf("ì…ë ¥ : ");
+
 	gotoxy(10, 10);
 	printf("bamboo");
 	gotoxy(50, 20);
 	printf("deal with something");
 	gotoxy(130, 0);
-	printf("HP : ¡á¡á¡á¡á¡á");
+	printf("HP : â– â– â– â– â– ");
 	gotoxy(130, 1);
-	printf("Á¡¼ö : 40"); 
+	printf("ì ìˆ˜ : 40");
 	gotoxy(12, 11);
 	setcolor(White, Black);
-	printf("¢ØÇÏ´Ã¿¡¼­ »ê¼º ºñ(±ÛÀÚ)°¡ ¶³¾îÁı´Ï´Ù.");
+	printf("â†–í•˜ëŠ˜ì—ì„œ ì‚°ì„± ë¹„(ê¸€ì)ê°€ ë–¨ì–´ì§‘ë‹ˆë‹¤.");
 	gotoxy(14, 12);
-	printf("±ÛÀÚ°¡ ¹Ù´Ù¿¡ µµ´ŞÇÏ±â Àü¿¡ ÀÔ·ÂÄ­¿¡ ±ÛÀÚ¸¦ ½á¼­ ¾ø¿¡ÁÖ¼¼¿ä"); 
+	printf("ê¸€ìê°€ ë°”ë‹¤ì— ë„ë‹¬í•˜ê¸° ì „ì— ì…ë ¥ì¹¸ì— ê¸€ìë¥¼ ì¨ì„œ ì—†ì—ì£¼ì„¸ìš”");
 	gotoxy(10, 31);
-	printf("ENTERÅ°¸¦ ´©¸£¸é ÀÔ·Â ´Ü¾î¸¦ È®ÀÎÇÏ°í ¸ÂÀ¸¸é ±ÛÀÚ°¡ ¾ø¾îÁı´Ï´Ù.");
+	printf("ENTERí‚¤ë¥¼ ëˆ„ë¥´ë©´ ì…ë ¥ ë‹¨ì–´ë¥¼ í™•ì¸í•˜ê³  ë§ìœ¼ë©´ ê¸€ìê°€ ì—†ì–´ì§‘ë‹ˆë‹¤.");
 	gotoxy(10, 32);
-	printf("¹ö±×Á¦º¸´Â gooderic8160@naver.com"); 
-	gotoxy(110, 2); 
-	printf("Á¡¼ö¿Í Ã¼·Â¹ÙÀÔ´Ï´Ù.   ¢Ö");
-	gotoxy(90, 3); 
-	printf("³­ÀÌµµ ¼³Á¤¿¡¼­ Ã¼·Â °¨¼ÒÀÇ Á¤µµ¸¦ ¼³Á¤ÇÒ ¼ö ÀÖ½À´Ï´Ù.");
-	
-	
+	printf("ë²„ê·¸ì œë³´ëŠ” gooderic8160@naver.com");
+	gotoxy(110, 2);
+	printf("ì ìˆ˜ì™€ ì²´ë ¥ë°”ì…ë‹ˆë‹¤.   â†—");
+	gotoxy(90, 3);
+	printf("ë‚œì´ë„ ì„¤ì •ì—ì„œ ì²´ë ¥ ê°ì†Œì˜ ì •ë„ë¥¼ ì„¤ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
+
+
 	gotoxy(52, 21);
-	printf("¢Ø´Ü¾î´Â ¿µ´Ü¾î¸¸ ³ª¿À°í ¼÷¾îµµ ³ª¿É´Ï´Ù.(¸î°³ÀÇ ¼÷¾î´Â Á¡¼ö°¡ 2¹èÀÔ´Ï´Ù.)");
+	printf("â†–ë‹¨ì–´ëŠ” ì˜ë‹¨ì–´ë§Œ ë‚˜ì˜¤ê³  ìˆ™ì–´ë„ ë‚˜ì˜µë‹ˆë‹¤.(ëª‡ê°œì˜ ìˆ™ì–´ëŠ” ì ìˆ˜ê°€ 2ë°°ì…ë‹ˆë‹¤.)");
 	gotoxy(54, 22);
-	printf("¿À¸¥ÂÊ À§ÀÇ Ã¼·Â¹Ù°¡ ´Ù ¾ø¾îÁö¸é °ÔÀÓ¿À¹ö°¡ µË´Ï´Ù."); 
-	setcolor(Lgray, Black); 
-	
-	getch();
-} 
+	printf("ì˜¤ë¥¸ìª½ ìœ„ì˜ ì²´ë ¥ë°”ê°€ ë‹¤ ì—†ì–´ì§€ë©´ ê²Œì„ì˜¤ë²„ê°€ ë©ë‹ˆë‹¤.");
+	setcolor(Lgray, Black);
+
+	_getch();
+}
 
 void Makers()//GameOption.Makers
 {
@@ -791,44 +796,44 @@ void Makers()//GameOption.Makers
 	int order = 0;
 	char egg;
 	makerstart = clock();
-	printf("¾Æ¹«Å°³ª ´©¸£¸é Skip"); 
-	
-	
-	while(1)
+	printf("ì•„ë¬´í‚¤ë‚˜ ëˆ„ë¥´ë©´ Skip");
+
+
+	while (1)
 	{
-		if(kbhit())break;
+		if (_kbhit())break;
 		makerend = clock();
-		if(makerend - makerstart >= 200 && makerend - makerstart < 400 & order == 0)
+		if (makerend - makerstart >= 200 && makerend - makerstart < 400 && order == 0)
 		{
-			gotoxy(65, 34); 
-			printf("Á¦ÀÛÀÚ : xidsf");
+			gotoxy(65, 34);
+			printf("ì œì‘ì : xidsf");
 			order++;
 		}
-		else if(makerend - makerstart >= 400 && makerend - makerstart < 600 && order == 1)
+		else if (makerend - makerstart >= 400 && makerend - makerstart < 600 && order == 1)
 		{
 			gotoxy(65, 34);
 			printf("               ");
 			gotoxy(65, 33);
-			printf("Á¦ÀÛÀÚ : xidsf");
+			printf("ì œì‘ì : xidsf");
 			gotoxy(53, 34);
-			printf("[°íµîÇĞ±³ ¶§ ¿¬½À °â Àç¹Ì·Î ¸¸µç °ÔÀÓ]");
+			printf("[ê³ ë“±í•™êµ ë•Œ ì—°ìŠµ ê²¸ ì¬ë¯¸ë¡œ ë§Œë“  ê²Œì„]");
 			order++;
 		}
-		else if(makerend - makerstart >= 600 && makerend - makerstart < 800 && order == 2) 
+		else if (makerend - makerstart >= 600 && makerend - makerstart < 800 && order == 2)
 		{
 			gotoxy(65, 33);
 			printf("               ");
 			gotoxy(53, 34);
 			printf("                                      ");
 			gotoxy(65, 32);
-			printf("Á¦ÀÛÀÚ : xidsf");
+			printf("ì œì‘ì : xidsf");
 			gotoxy(53, 33);
-			printf("[°íµîÇĞ±³ ¶§ ¿¬½À °â Àç¹Ì·Î ¸¸µç °ÔÀÓ]");
-			gotoxy(64, 34); 
-			printf("<µµ¿òÀ» ÁØ »ç¶÷>");
+			printf("[ê³ ë“±í•™êµ ë•Œ ì—°ìŠµ ê²¸ ì¬ë¯¸ë¡œ ë§Œë“  ê²Œì„]");
+			gotoxy(64, 34);
+			printf("<ë„ì›€ì„ ì¤€ ì‚¬ëŒ>");
 			order++;
 		}
-		else if(makerend - makerstart >= 800 && makerend - makerstart < 1000 && order == 3) 
+		else if (makerend - makerstart >= 800 && makerend - makerstart < 1000 && order == 3)
 		{
 			gotoxy(65, 32);
 			printf("               ");
@@ -837,26 +842,26 @@ void Makers()//GameOption.Makers
 			gotoxy(64, 34);
 			printf("                 ");
 			gotoxy(65, 31);
-			printf("Á¦ÀÛÀÚ : xidsf");
+			printf("ì œì‘ì : xidsf");
 			gotoxy(53, 32);
-			printf("[°íµîÇĞ±³ ¶§ ¿¬½À °â Àç¹Ì·Î ¸¸µç °ÔÀÓ]");
-			gotoxy(64, 33); 
-			printf("<µµ¿òÀ» ÁØ »ç¶÷>");
-			gotoxy(50, 34); 
-			printf("-ÀÌ °ÔÀÓÀ» ÇÃ·¹ÀÌ ÇØÁØ °íµîÇĞ±³ Ä£±¸µé ¸ğµÎ-");
+			printf("[ê³ ë“±í•™êµ ë•Œ ì—°ìŠµ ê²¸ ì¬ë¯¸ë¡œ ë§Œë“  ê²Œì„]");
+			gotoxy(64, 33);
+			printf("<ë„ì›€ì„ ì¤€ ì‚¬ëŒ>");
+			gotoxy(50, 34);
+			printf("-ì´ ê²Œì„ì„ í”Œë ˆì´ í•´ì¤€ ê³ ë“±í•™êµ ì¹œêµ¬ë“¤ ëª¨ë‘-");
 			order++;
 		}
-		else if(order == 4 && makerend - makerstart >= 1000)
+		else if (order == 4 && makerend - makerstart >= 1000)
 		{
 			order = 5;
-			for(i = 0; i < 31; i++)
+			for (i = 0; i < 31; i++)
 			{
-				while(1)
+				while (1)
 				{
-					if(kbhit())	goto Escape;
+					if (_kbhit())	goto Escape;
 
 					makerend = clock();
-					if(makerend - makerstart >= 200)
+					if (makerend - makerstart >= 200)
 					{
 						gotoxy(65, 31 - i);
 						printf("               ");
@@ -864,25 +869,25 @@ void Makers()//GameOption.Makers
 						printf("                                      ");
 						gotoxy(64, 33 - i);
 						printf("                 ");
-						gotoxy(50, 34 - i); 
+						gotoxy(50, 34 - i);
 						printf("                                            ");
 						gotoxy(65, 31 - 1 - i);
-						printf("Á¦ÀÛÀÚ : xidsf");
+						printf("ì œì‘ì : xidsf");
 						gotoxy(53, 32 - 1 - i);
-						printf("[°íµîÇĞ±³ ¶§ ¿¬½À °â Àç¹Ì·Î ¸¸µç °ÔÀÓ]");
-						gotoxy(64, 33 - 1 - i); 
-						printf("<µµ¿òÀ» ÁØ »ç¶÷>");
-						gotoxy(50, 34 - 1 - i); 
-						printf("-ÀÌ °ÔÀÓÀ» ÇÃ·¹ÀÌ ÇØÁØ °íµîÇĞ±³ Ä£±¸µé ¸ğµÎ-");
+						printf("[ê³ ë“±í•™êµ ë•Œ ì—°ìŠµ ê²¸ ì¬ë¯¸ë¡œ ë§Œë“  ê²Œì„]");
+						gotoxy(64, 33 - 1 - i);
+						printf("<ë„ì›€ì„ ì¤€ ì‚¬ëŒ>");
+						gotoxy(50, 34 - 1 - i);
+						printf("-ì´ ê²Œì„ì„ í”Œë ˆì´ í•´ì¤€ ê³ ë“±í•™êµ ì¹œêµ¬ë“¤ ëª¨ë‘-");
 						makerstart = clock();
 						break;
 					}
 				}
 			}
 		}
-		if(order >= 5)
+		if (order >= 5)
 		{
-			if(makerend - makerstart >= 200 && makerend - makerstart < 400 && order == 5)
+			if (makerend - makerstart >= 200 && makerend - makerstart < 400 && order == 5)
 			{
 				gotoxy(65, 0);
 				printf("               ");
@@ -890,170 +895,170 @@ void Makers()//GameOption.Makers
 				printf("                                      ");
 				gotoxy(64, 2);
 				printf("                 ");
-				gotoxy(50, 3); 
+				gotoxy(50, 3);
 				printf("                                            ");
 				gotoxy(53, 0);
-				printf("[°íµîÇĞ±³ ¶§ ¿¬½À °â Àç¹Ì·Î ¸¸µç °ÔÀÓ]");
-				gotoxy(64, 1); 
-				printf("<µµ¿òÀ» ÁØ »ç¶÷>");
-				gotoxy(50, 2); 
-				printf("-ÀÌ °ÔÀÓÀ» ÇÃ·¹ÀÌ ÇØÁØ °íµîÇĞ±³ Ä£±¸µé ¸ğµÎ-");
+				printf("[ê³ ë“±í•™êµ ë•Œ ì—°ìŠµ ê²¸ ì¬ë¯¸ë¡œ ë§Œë“  ê²Œì„]");
+				gotoxy(64, 1);
+				printf("<ë„ì›€ì„ ì¤€ ì‚¬ëŒ>");
+				gotoxy(50, 2);
+				printf("-ì´ ê²Œì„ì„ í”Œë ˆì´ í•´ì¤€ ê³ ë“±í•™êµ ì¹œêµ¬ë“¤ ëª¨ë‘-");
 				order++;
 			}
-			else if(makerend - makerstart >= 400 && makerend - makerstart < 600 & order == 6)
+			else if (makerend - makerstart >= 400 && makerend - makerstart < 600 && order == 6)
 			{
 				gotoxy(53, 0);
 				printf("                                      ");
 				gotoxy(64, 1);
 				printf("                 ");
-				gotoxy(50, 2); 
+				gotoxy(50, 2);
 				printf("                                            ");
-				gotoxy(64, 0); 
-				printf("<µµ¿òÀ» ÁØ »ç¶÷>");
-				gotoxy(50, 1); 
-				printf("-ÀÌ °ÔÀÓÀ» ÇÃ·¹ÀÌ ÇØÁØ °íµîÇĞ±³ Ä£±¸µé ¸ğµÎ-");
+				gotoxy(64, 0);
+				printf("<ë„ì›€ì„ ì¤€ ì‚¬ëŒ>");
+				gotoxy(50, 1);
+				printf("-ì´ ê²Œì„ì„ í”Œë ˆì´ í•´ì¤€ ê³ ë“±í•™êµ ì¹œêµ¬ë“¤ ëª¨ë‘-");
 				order++;
 			}
-			else if(makerend - makerstart >= 600 && makerend - makerstart < 800 & order == 7)
+			else if (makerend - makerstart >= 600 && makerend - makerstart < 800 && order == 7)
 			{
 				gotoxy(64, 0);
 				printf("                 ");
-				gotoxy(50, 1); 
+				gotoxy(50, 1);
 				printf("                                            ");
-				gotoxy(50, 0); 
-				printf("-ÀÌ °ÔÀÓÀ» ÇÃ·¹ÀÌ ÇØÁØ °íµîÇĞ±³ Ä£±¸µé ¸ğµÎ-");
+				gotoxy(50, 0);
+				printf("-ì´ ê²Œì„ì„ í”Œë ˆì´ í•´ì¤€ ê³ ë“±í•™êµ ì¹œêµ¬ë“¤ ëª¨ë‘-");
 				order++;
 			}
-			else if(makerend - makerstart >= 800 && makerend - makerstart < 1000 & order == 8)
+			else if (makerend - makerstart >= 800 && makerend - makerstart < 1000 && order == 8)
 			{
-				gotoxy(50, 0); 
+				gotoxy(50, 0);
 				printf("                                            ");
 				order++;
 			}
-			else if(makerend - makerstart >= 1000 && makerend - makerstart < 1200 & order == 9) goto EscapeOut;
+			else if (makerend - makerstart >= 1000 && makerend - makerstart < 1200 && order == 9) goto EscapeOut;
 		}
 	}
-	Escape:
-		egg = getch();
-		if(egg == 64)//@ÀÔ·Â½Ã ÀÌ½ºÅÍ¿¡±× ÆäÀÌÁö·Î ÀÌµ¿ 
-		{ 
-			system("cls");
-			gotoxy(50, 10);
-			printf("¡Ú¡Ú¡Ú¡Ú¡ÚMaker`s Secret Room¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú"); 
-			gotoxy(59, 15);
-			printf("¢º");
+Escape:
+	egg = _getch();
+	if (egg == 64)//@ì…ë ¥ì‹œ ì´ìŠ¤í„°ì—ê·¸ í˜ì´ì§€ë¡œ ì´ë™ 
+	{
+		system("cls");
+		gotoxy(50, 10);
+		printf("â˜…â˜…â˜…â˜…â˜…Maker`s Secret Roomâ˜…â˜…â˜…â˜…â˜…â˜…");
+		gotoxy(59, 15);
+		printf("â–¶");
+		gotoxy(63, 15);
+		printf("Turn On EX Mode");
+		gotoxy(35, 25);
+		printf("[EX Mode] : ê¸€ìê°€ ë§¤ìš° ë¹ ë¥´ê²Œ ë–¨ì–´ì§€ë©´ì„œ ì²´ë ¥ ê°ì†Œê°€ ì—†ìŠµë‹ˆë‹¤. ");
+		gotoxy(35, 26);
+		printf("ë‹¨, ë‹¨ì–´ê°€ 100ê°œ ì´ìƒì´ ë‚´ë ¤ì˜¤ë©´ ê²Œì„ ì˜¤ë²„!");
+		if (worddifficulty == EX)
+		{
+			gotoxy(61, 15);
+			setcolor(Blue, Black);
+			printf("â˜…");
 			gotoxy(63, 15);
-			printf("Turn On EX Mode");
-			gotoxy(35, 25);
-			printf("[EX Mode] : ±ÛÀÚ°¡ ¸Å¿ì ºü¸£°Ô ¶³¾îÁö¸é¼­ Ã¼·Â °¨¼Ò°¡ ¾ø½À´Ï´Ù. ");
-			gotoxy(35, 26);
-			printf("´Ü, ´Ü¾î°¡ 100°³ ÀÌ»óÀÌ ³»·Á¿À¸é °ÔÀÓ ¿À¹ö!");
-			if(worddifficulty == EX)
+			for (i = 1; i <= 12; i++)
 			{
+				setcolor(i, Black);
+				if (i == 1)printf("T");
+				else if (i == 2)printf("u");
+				else if (i == 3)printf("r");
+				else if (i == 4)printf("n ");
+				else if (i == 5)printf("O");
+				else if (i == 6)printf("n ");
+				else if (i == 7)printf("E");
+				else if (i == 8)printf("X ");
+				else if (i == 9)printf("M");
+				else if (i == 10)printf("o");
+				else if (i == 11)printf("d");
+				else if (i == 12)printf("e");
+			}
+			setcolor(Lgray, Black);
+		}
+		while (1)
+		{
+			egg = _getch();
+			if (egg == Z || egg == ENTER || egg == LZ)
+			{
+				gotoxy(63, 15);
+				for (i = 1; i <= 12; i++)
+				{
+					setcolor(i, Black);
+					if (i == 1)printf("T");
+					else if (i == 2)printf("u");
+					else if (i == 3)printf("r");
+					else if (i == 4)printf("n ");
+					else if (i == 5)printf("O");
+					else if (i == 6)printf("n ");
+					else if (i == 7)printf("E");
+					else if (i == 8)printf("X ");
+					else if (i == 9)printf("M");
+					else if (i == 10)printf("o");
+					else if (i == 11)printf("d");
+					else if (i == 12)printf("e");
+				}
+
 				gotoxy(61, 15);
 				setcolor(Blue, Black);
-				printf("¡Ú");
-				gotoxy(63, 15);
-				for(i = 1; i <= 12; i++)
-				{
-					setcolor(i , Black);
-					if(i == 1)printf("T");
-					else if(i == 2)printf("u");
-					else if(i == 3)printf("r");
-					else if(i == 4)printf("n ");
-					else if(i == 5)printf("O");
-					else if(i == 6)printf("n ");
-					else if(i == 7)printf("E");
-					else if(i == 8)printf("X ");
-					else if(i == 9)printf("M");
-					else if(i == 10)printf("o");
-					else if(i == 11)printf("d");
-					else if(i == 12)printf("e");
-				}
+				printf("â˜…");
 				setcolor(Lgray, Black);
+				worddifficulty = EX;
 			}
-			while(1)
-			{
-				egg = getch();
-				if(egg == Z || egg == ENTER || egg == LZ)
-				{
-					gotoxy(63, 15);
-					for(i = 1; i <= 12; i++)
-					{
-						setcolor(i , Black);
-						if(i == 1)printf("T");
-						else if(i == 2)printf("u");
-						else if(i == 3)printf("r");
-						else if(i == 4)printf("n ");
-						else if(i == 5)printf("O");
-						else if(i == 6)printf("n ");
-						else if(i == 7)printf("E");
-						else if(i == 8)printf("X ");
-						else if(i == 9)printf("M");
-						else if(i == 10)printf("o");
-						else if(i == 11)printf("d");
-						else if(i == 12)printf("e");
-					}
-					
-					gotoxy(61, 15);
-					setcolor(Blue, Black);
-					printf("¡Ú");
-					setcolor(Lgray, Black); 
-					worddifficulty = EX;
-				}
-				else if(egg == X || egg == ESC || egg == LX) goto EscapeOut;
-				
-			}
+			else if (egg == X || egg == ESC || egg == LX) goto EscapeOut;
+
 		}
-	EscapeOut:
-		Sleep(1);
+	}
+EscapeOut:
+	Sleep(1);
 }
 
 void DifficultyOption()//GameOption.DifficultyOption
 {
 	int i, j, key;
-	int locate[2] = {41, 13};
-	
+	int locate[2] = { 41, 13 };
+
 	gotoxy(30, 2);
 	printf("Game Difficulty Option ---------------------------------------------------------------------------");
 	gotoxy(30, 4);
-	printf("¡Ø[Ã¼·Â °¨¼Ò ¼³Á¤] : Ã¼·ÂÀÌ n¹è·Î ¾ø¾îÁö´Â ´ë½Å ¾ò´Â Á¡¼ö°¡ n¹è°¡ µË´Ï´Ù.");
+	printf("â€»[ì²´ë ¥ ê°ì†Œ ì„¤ì •] : ì²´ë ¥ì´ në°°ë¡œ ì—†ì–´ì§€ëŠ” ëŒ€ì‹  ì–»ëŠ” ì ìˆ˜ê°€ në°°ê°€ ë©ë‹ˆë‹¤.");
 	gotoxy(30, 5);
-	printf("¡Ø[ÃÊ±â ³­ÀÌµµ ¼³Á¤] :  ³­ÀÌµµ¸¦ Áö³ª°¥ ¶§ ¾òÀ» ¼ö ÀÖ´Â ÃÖ¼Ò Á¡¼ö¸¸ ÁÖ¾îÁö°í ³­ÀÌµµ¸¦ ½ºÅµÇÕ´Ï´Ù.");
+	printf("â€»[ì´ˆê¸° ë‚œì´ë„ ì„¤ì •] :  ë‚œì´ë„ë¥¼ ì§€ë‚˜ê°ˆ ë•Œ ì–»ì„ ìˆ˜ ìˆëŠ” ìµœì†Œ ì ìˆ˜ë§Œ ì£¼ì–´ì§€ê³  ë‚œì´ë„ë¥¼ ìŠ¤í‚µí•©ë‹ˆë‹¤.");
 	gotoxy(43, 7);
-	printf("[Ã¼·Â °¨¼Ò ¼³Á¤]");
+	printf("[ì²´ë ¥ ê°ì†Œ ì„¤ì •]");
 	gotoxy(80, 7);
-	printf("[ÃÊ±â ³­ÀÌµµ ¼³Á¤]");
+	printf("[ì´ˆê¸° ë‚œì´ë„ ì„¤ì •]");
 	gotoxy(30, 25);
-	printf("[ÁÖÀÇ]HELL³­ÀÌµµ´Â ÃÊ±â ³­ÀÌµµ·Î ¼³Á¤ÇÒ ¼ö ¾ø½À´Ï´Ù.(ÇÏÁö¸¸ ¿Ö ÀÖÀ»±î¿ä? ^^7 )");
-	
+	printf("[ì£¼ì˜]HELLë‚œì´ë„ëŠ” ì´ˆê¸° ë‚œì´ë„ë¡œ ì„¤ì •í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.(í•˜ì§€ë§Œ ì™œ ìˆì„ê¹Œìš”? ^^7 )");
+
 	gotoxy(30, 8);
-	for(i = 0; i < 40; i++)
+	for (i = 0; i < 40; i++)
 	{
-		printf("¡à");
+		printf("â–¡");
 	}
-	for(i = 1; i <= 13; i++)
+	for (i = 1; i <= 13; i++)
 	{
 		gotoxy(30, 8 + i);
-		for(j = 0; j < 40; j++)
+		for (j = 0; j < 40; j++)
 		{
-			if(j == 0|| j == 19|| j == 39) printf("¡à");
+			if (j == 0 || j == 19 || j == 39) printf("â–¡");
 			else printf("  ");
 		}
 	}
 	gotoxy(30, 22);
-	for(i = 0; i < 40; i++)
+	for (i = 0; i < 40; i++)
 	{
-		printf("¡à");
+		printf("â–¡");
 	}
 	gotoxy(41, 13);
-	printf("¢¹");
+	printf("â–·");
 	gotoxy(46, 13);
-	printf("Ã¼·Â °¨¼Ò X 1");
+	printf("ì²´ë ¥ ê°ì†Œ X 1");
 	gotoxy(46, 15);
-	printf("Ã¼·Â °¨¼Ò X 2");
+	printf("ì²´ë ¥ ê°ì†Œ X 2");
 	gotoxy(46, 17);
-	printf("Ã¼·Â °¨¼Ò X 3");
+	printf("ì²´ë ¥ ê°ì†Œ X 3");
 	gotoxy(82, 11);
 	printf("EASY");
 	gotoxy(82, 13);
@@ -1064,332 +1069,332 @@ void DifficultyOption()//GameOption.DifficultyOption
 	printf("IMPOSSIBLE");
 	gotoxy(82, 19);
 	printf("HELL");
-	
+
 	gotoxy(43, 11 + (2 * healthD));
-	if(healthD == 1)
+	if (healthD == 1)
 	{
-		printf("¡Ù");
+		printf("â˜†");
 	}
-	else if(healthD == 2)
+	else if (healthD == 2)
 	{
-		printf("¡Ú");
+		printf("â˜…");
 	}
-	else if(healthD == 3)
+	else if (healthD == 3)
 	{
 		setcolor(Red, Black);
-		printf("¡Ú");
-		setcolor(Lgray, Black); 
-	}
-	
-	for(i = 0; i < 5; i++)
-	{
-		gotoxy(79, 11 + (i*2));
-		printf("  ");
-	}
-	if(worddifficulty == easy)
-	{
-		gotoxy(79, 11);
-		printf("¡Ù");
-	}
-	else if(worddifficulty == normal)
-	{
-		gotoxy(79, 13);
-		printf("¡Ù");
-	}
-	else if(worddifficulty == hard)
-	{
-		gotoxy(79, 15);
-		printf("¡Ú");
-	}
-	else if(worddifficulty == impossible)
-	{
-		gotoxy(79, 17);
-		printf("¡Ú");
-	}
-	else if(worddifficulty == hell)
-	{
-		gotoxy(79, 19);
-		setcolor(Red,Black);
-		printf("¡Ú");
+		printf("â˜…");
 		setcolor(Lgray, Black);
 	}
-	while(1)
+
+	for (i = 0; i < 5; i++)
 	{
-		if(kbhit())
+		gotoxy(79, 11 + (i * 2));
+		printf("  ");
+	}
+	if (worddifficulty == easy)
+	{
+		gotoxy(79, 11);
+		printf("â˜†");
+	}
+	else if (worddifficulty == normal)
+	{
+		gotoxy(79, 13);
+		printf("â˜†");
+	}
+	else if (worddifficulty == hard)
+	{
+		gotoxy(79, 15);
+		printf("â˜…");
+	}
+	else if (worddifficulty == impossible)
+	{
+		gotoxy(79, 17);
+		printf("â˜…");
+	}
+	else if (worddifficulty == hell)
+	{
+		gotoxy(79, 19);
+		setcolor(Red, Black);
+		printf("â˜…");
+		setcolor(Lgray, Black);
+	}
+	while (1)
+	{
+		if (_kbhit())
 		{
-			key = getch();
-			if(key == 224)
+			key = _getch();
+			if (key == 224)
 			{
-				key = getch();
+				key = _getch();
 				gotoxy(locate[0], locate[1]);
 				printf("  ");
-				switch(key)
+				switch (key)
 				{
-					case UP:
-						locate[1] = locate[1] - 2;
-						if(locate[0] == 77)
-						{
-							if(locate[1] == 9) locate[1] = 19;
-						}
-						else if(locate[0] == 41)
-						{
-							if(locate[1] == 11) locate[1] = 17;
-						}
-						break;
-						
-					case DOWN:
-						locate[1] = locate[1] + 2;
-						if(locate[0] == 77)
-						{
-							if(locate[1] == 21) locate[1] = 11;
-						}
-						else if(locate[0] == 41)
-						{
-							if(locate[1] == 19) locate[1] = 13;
-						}
-						break;
-					case RIGHT:
-						if(locate[0] == 41) locate[0] = 77;
-						else if(locate[0] == 77)
-						{
-							locate[0] = 41;
-							if(locate[1] == 11) locate[1] = 13;
-							else if(locate[1] == 19) locate[1] = 17;
-						}
-						break;
-					case LEFT:
-						if(locate[0] == 41) locate[0] = 77;
-						else if(locate[0] == 77)
-						{
-							locate[0] = 41;
-							if(locate[1] == 11) locate[1] = 13;
-							else if(locate[1] == 19) locate[1] = 17;
-						}
-						break;
+				case UP:
+					locate[1] = locate[1] - 2;
+					if (locate[0] == 77)
+					{
+						if (locate[1] == 9) locate[1] = 19;
+					}
+					else if (locate[0] == 41)
+					{
+						if (locate[1] == 11) locate[1] = 17;
+					}
+					break;
+
+				case DOWN:
+					locate[1] = locate[1] + 2;
+					if (locate[0] == 77)
+					{
+						if (locate[1] == 21) locate[1] = 11;
+					}
+					else if (locate[0] == 41)
+					{
+						if (locate[1] == 19) locate[1] = 13;
+					}
+					break;
+				case RIGHT:
+					if (locate[0] == 41) locate[0] = 77;
+					else if (locate[0] == 77)
+					{
+						locate[0] = 41;
+						if (locate[1] == 11) locate[1] = 13;
+						else if (locate[1] == 19) locate[1] = 17;
+					}
+					break;
+				case LEFT:
+					if (locate[0] == 41) locate[0] = 77;
+					else if (locate[0] == 77)
+					{
+						locate[0] = 41;
+						if (locate[1] == 11) locate[1] = 13;
+						else if (locate[1] == 19) locate[1] = 17;
+					}
+					break;
 				}
 				gotoxy(locate[0], locate[1]);
-				printf("¢¹");
+				printf("â–·");
 			}
-			if(key == ENTER || key == Z || key == LZ)
+			if (key == ENTER || key == Z || key == LZ)
 			{
-				if(locate[0] == 41 && locate[1] == 13) healthD = 1;
-				else if(locate[0] == 41 && locate[1] == 15) healthD = 2;
-				else if(locate[0] == 41 && locate[1] == 17) healthD = 3;
-				if(locate[0] == 77 && locate[1] == 11) worddifficulty = easy;
-				else if(locate[0] == 77 && locate[1] == 13) worddifficulty = normal;
-				else if(locate[0] == 77 && locate[1] == 15) worddifficulty = hard;
-				else if(locate[0] == 77 && locate[1] == 17) worddifficulty = impossible;
-				else if(locate[0] == 77 && locate[1] == 19 && HELLOPEN == 1) worddifficulty = hell;
-				else if(locate[0] == 77 && locate[1] == 19 && HELLOPEN == 0)
+				if (locate[0] == 41 && locate[1] == 13) healthD = 1;
+				else if (locate[0] == 41 && locate[1] == 15) healthD = 2;
+				else if (locate[0] == 41 && locate[1] == 17) healthD = 3;
+				if (locate[0] == 77 && locate[1] == 11) worddifficulty = easy;
+				else if (locate[0] == 77 && locate[1] == 13) worddifficulty = normal;
+				else if (locate[0] == 77 && locate[1] == 15) worddifficulty = hard;
+				else if (locate[0] == 77 && locate[1] == 17) worddifficulty = impossible;
+				else if (locate[0] == 77 && locate[1] == 19 && HELLOPEN == 1) worddifficulty = hell;
+				else if (locate[0] == 77 && locate[1] == 19 && HELLOPEN == 0)
 				{
 					gotoxy(50, 30);
 					setcolor(Red, Black);
-					printf("*************ÇØ±İµÇÁö ¾Ê¾Ò½À´Ï´Ù*************"); 
+					printf("*************í•´ê¸ˆë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤*************");
 					Sleep(300);
-					if(kbhit()) getch();
+					if (_kbhit()) _getch();
 					gotoxy(50, 30);
 					printf("                                             ");
 					setcolor(Lgray, Black);
 				}
-				for(i = 0; i < 3; i++)
+				for (i = 0; i < 3; i++)
 				{
-					gotoxy(43, 13 + (i*2));
+					gotoxy(43, 13 + (i * 2));
 					printf("  ");
 				}
 				gotoxy(43, 11 + (2 * healthD));
-				if(healthD == 1)
+				if (healthD == 1)
 				{
-					printf("¡Ù");
+					printf("â˜†");
 				}
-				else if(healthD == 2)
+				else if (healthD == 2)
 				{
-					printf("¡Ú");
+					printf("â˜…");
 				}
-				else if(healthD == 3)
+				else if (healthD == 3)
 				{
 					setcolor(Red, Black);
-					printf("¡Ú");
-					setcolor(Lgray, Black); 
+					printf("â˜…");
+					setcolor(Lgray, Black);
 				}
-				
-				
-				for(i = 0; i < 5; i++)
+
+
+				for (i = 0; i < 5; i++)
 				{
-					gotoxy(79, 11 + (i*2));
+					gotoxy(79, 11 + (i * 2));
 					printf("  ");
 				}
-				if(worddifficulty == easy)
+				if (worddifficulty == easy)
 				{
 					gotoxy(79, 11);
-					printf("¡Ù");
+					printf("â˜†");
 				}
-				else if(worddifficulty == normal)
+				else if (worddifficulty == normal)
 				{
 					gotoxy(79, 13);
-					printf("¡Ù");
+					printf("â˜†");
 				}
-				else if(worddifficulty == hard)
+				else if (worddifficulty == hard)
 				{
 					gotoxy(79, 15);
-					printf("¡Ú");
+					printf("â˜…");
 				}
-				else if(worddifficulty == impossible)
+				else if (worddifficulty == impossible)
 				{
 					gotoxy(79, 17);
-					printf("¡Ú");
+					printf("â˜…");
 				}
-				else if(worddifficulty == hell)
+				else if (worddifficulty == hell)
 				{
 					gotoxy(79, 19);
-					setcolor(Red, Black); 
-					printf("¡Ú");
+					setcolor(Red, Black);
+					printf("â˜…");
 					setcolor(Lgray, Black);
 				}
 				FilePrint();
 			}
-			else if(key == ESC || key == X || key == LX)
+			else if (key == ESC || key == X || key == LX)
 			{
 				break;
-			} 
+			}
 		}
-	} 
+	}
 }
 
-void ScoreRecord()//Á¡¼ö ÆÄÀÏÀÌ ÀÖ´ÂÁö È®ÀÎÇÏ°í ¾øÀ¸¸é »ı¼º
+void ScoreRecord()//ì ìˆ˜ íŒŒì¼ì´ ìˆëŠ”ì§€ í™•ì¸í•˜ê³  ì—†ìœ¼ë©´ ìƒì„±
 {
 	int i, j, a;
 	int healthD[10];
 	char difficulty[10][11];
 	int score[10];
-	
+
 	FILE* fp;
 	fp = fopen("scoreboard.txt", "r");
-	if(fp == NULL)
+	if (fp == NULL)
 	{
 		fp = fopen("scoreboard.txt", "w");
-		fprintf(fp ,"0");
+		fprintf(fp, "0");
 		gotoxy(60, 30);
-		printf("±â·ÏÀÌ ¾ø½À´Ï´Ù.");
+		printf("ê¸°ë¡ì´ ì—†ìŠµë‹ˆë‹¤.");
 		Sleep(500);
 		gotoxy(60, 30);
-		printf("                "); 
+		printf("                ");
 		goto Escape;
 	}
-	fscanf(fp, "%d", &a);//¸î°³ÀÇ ±â·ÏÀÌ ÀÖ´ÂÁö È®ÀÎ 
-	
-	if(a == 0)//±â·ÏÀÌ 0°³¸é ³ª°¨ 
+	fscanf(fp, "%d", &a);//ëª‡ê°œì˜ ê¸°ë¡ì´ ìˆëŠ”ì§€ í™•ì¸ 
+
+	if (a == 0)//ê¸°ë¡ì´ 0ê°œë©´ ë‚˜ê° 
 	{
 		gotoxy(60, 30);
-		printf("±â·ÏÀÌ ¾ø½À´Ï´Ù.");
+		printf("ê¸°ë¡ì´ ì—†ìŠµë‹ˆë‹¤.");
 		Sleep(500);
 		gotoxy(60, 30);
-		printf("                "); 
+		printf("                ");
 		goto Escape;
 	}
-	system("cls"); 
-	
-	for(i = 0; i < a; i++)
+	system("cls");
+
+	for (i = 0; i < a; i++)
 	{
 		fscanf(fp, "%d %s %d", &healthD[i], difficulty[i], &score[i]);
 	}
 	fclose(fp);
-	
-	for(i = 0; i < a; i++)//È­¸é¿¡ Ãâ·Â 
+
+	for (i = 0; i < a; i++)//í™”ë©´ì— ì¶œë ¥ 
 	{
 		gotoxy(60, 5);
 		printf("S C O R E   R E C O R D");
-		gotoxy(50, 10 + i*2);
-		printf("%dµî:  X%d¹è  %s´Ü°è  %dÁ¡", i + 1, healthD[i], difficulty[i], score[i]);
+		gotoxy(50, 10 + i * 2);
+		printf("%dë“±:  X%dë°°  %së‹¨ê³„  %dì ", i + 1, healthD[i], difficulty[i], score[i]);
 	}
-	
-	for(i = 0; i < 35; i++)
+
+	for (i = 0; i < 35; i++)
 	{
 		gotoxy(0, i);
-		if(i % 2 == 0)
+		if (i % 2 == 0)
 		{
 			setcolor(Red, Black);
-			printf("¡Ú");
+			printf("â˜…");
 			setcolor(Blue, Black);
-			printf("¡Ù");
+			printf("â˜†");
 			setcolor(Red, Black);
-			printf("¡Ú");
-			setcolor(Lgray, Black); 
+			printf("â˜…");
+			setcolor(Lgray, Black);
 		}
 		else
 		{
 			setcolor(Blue, Black);
-			printf("¡Ú");
+			printf("â˜…");
 			setcolor(Red, Black);
-			printf("¡Ù");
+			printf("â˜†");
 			setcolor(Blue, Black);
-			printf("¡Ú");
-			setcolor(Lgray, Black); 
+			printf("â˜…");
+			setcolor(Lgray, Black);
 		}
 		gotoxy(144, i);
-		if(i % 2 == 0)
+		if (i % 2 == 0)
 		{
 			setcolor(Red, Black);
-			printf("¡Ú");
+			printf("â˜…");
 			setcolor(Blue, Black);
-			printf("¡Ù");
+			printf("â˜†");
 			setcolor(Red, Black);
-			printf("¡Ú");
-			setcolor(Lgray, Black); 
+			printf("â˜…");
+			setcolor(Lgray, Black);
 		}
 		else
 		{
 			setcolor(Blue, Black);
-			printf("¡Ú");
+			printf("â˜…");
 			setcolor(Red, Black);
-			printf("¡Ù");
+			printf("â˜†");
 			setcolor(Blue, Black);
-			printf("¡Ú");
-			setcolor(Lgray, Black); 
+			printf("â˜…");
+			setcolor(Lgray, Black);
 		}
 	}
 	gotoxy(45, 32);
-	printf("µî¼ö´Â 10µî±îÁö ÀúÀåµÇ¸ç Ã¼·Â¹è¼ö, ÃÖ°í ³­ÀÌµµ, ÃÖ´ëÁ¡¼ö°¡ Ç¥½ÃµË´Ï´Ù.");
-	
-	while(1)
+	printf("ë“±ìˆ˜ëŠ” 10ë“±ê¹Œì§€ ì €ì¥ë˜ë©° ì²´ë ¥ë°°ìˆ˜, ìµœê³  ë‚œì´ë„, ìµœëŒ€ì ìˆ˜ê°€ í‘œì‹œë©ë‹ˆë‹¤.");
+
+	while (1)
 	{
-		getch();
-		Escape:
-		fclose(fp); 
+		_getch();
+	Escape:
+		fclose(fp);
 		system("cls");
 		break;
 	}
 }
 
-void GameOption()//°ÔÀÓ Á¤º¸ 
+void GameOption()//ê²Œì„ ì •ë³´ 
 {
-	int i ,j, key;
+	int i, j, key;
 	int CS = 12;
-	
-	Select:
-	system("cls"); 
+
+Select:
+	system("cls");
 	gotoxy(60, 5);
 	printf("Game Option");
-	
+
 	gotoxy(50, 10);
-	for(i = 0; i < 20; i++)
+	for (i = 0; i < 20; i++)
 	{
-		printf("¡à");
+		printf("â–¡");
 	}
-	for(i = 1; i <= 9; i++)
+	for (i = 1; i <= 9; i++)
 	{
-		gotoxy(50, 10 +  i);
-		for(j = 0; j < 20; j++)
+		gotoxy(50, 10 + i);
+		for (j = 0; j < 20; j++)
 		{
-			if(j == 0|| j == 19) printf("¡à");
+			if (j == 0 || j == 19) printf("â–¡");
 			else printf("  ");
 		}
 	}
 	gotoxy(50, 20);
-	for(i = 0; i < 20; i++)
+	for (i = 0; i < 20; i++)
 	{
-		printf("¡à");
+		printf("â–¡");
 	}
-	
+
 	gotoxy(61, 12);
 	printf("How to Play");
 	gotoxy(61, 14);
@@ -1399,69 +1404,69 @@ void GameOption()//°ÔÀÓ Á¤º¸
 	gotoxy(61, 18);
 	printf("Score Record");
 	gotoxy(59, CS);
-	printf("¢¹");
-	
-	while(1)
+	printf("â–·");
+
+	while (1)
 	{
-		if(kbhit())
+		if (_kbhit())
 		{
-			key = getch();
-			if(key == 224)
+			key = _getch();
+			if (key == 224)
 			{
-				key = getch();
-				switch(key)
+				key = _getch();
+				switch (key)
 				{
-					case UP:
-						gotoxy(59, CS);
-						printf("  ");
-						CS = CS - 2;
-						if(CS == 10) CS = 18;
-						break;
-						
-					case DOWN:
-						gotoxy(59, CS);
-						printf("  ");
-						CS = CS + 2;
-						if(CS == 20) CS = 12;
-						break;
+				case UP:
+					gotoxy(59, CS);
+					printf("  ");
+					CS = CS - 2;
+					if (CS == 10) CS = 18;
+					break;
+
+				case DOWN:
+					gotoxy(59, CS);
+					printf("  ");
+					CS = CS + 2;
+					if (CS == 20) CS = 12;
+					break;
 				}
 				gotoxy(59, CS);
-				printf("¢¹");
+				printf("â–·");
 			}
-			else if(key == ENTER || key == Z || key == LZ)
+			else if (key == ENTER || key == Z || key == LZ)
 			{
-				switch(CS)
+				switch (CS)
 				{
-					case 12:
-						system("cls");
-						HowToPlay();//ÇÃ·¹ÀÌ ¹æ¹ı
-						goto Select;
-						break;
-					case 14:
-						system("cls");
-						Makers();//¸¸µçÀÌ 
-						goto Select;
-						break;
-					case 16:
-						system("cls");
-						DifficultyOption();//ÃÊ±â ³­ÀÌµµ ¼³Á¤ ¹× Ã¼·Â °¨¼Ò ¼³Á¤ ¿É¼Ç 
-						goto Select;
-						break;
-					case 18:
-						ScoreRecord(); // Á¡¼ö º¸±â 
-						goto Select;
-						break;
+				case 12:
+					system("cls");
+					HowToPlay();//í”Œë ˆì´ ë°©ë²•
+					goto Select;
+					break;
+				case 14:
+					system("cls");
+					Makers();//ë§Œë“ ì´ 
+					goto Select;
+					break;
+				case 16:
+					system("cls");
+					DifficultyOption();//ì´ˆê¸° ë‚œì´ë„ ì„¤ì • ë° ì²´ë ¥ ê°ì†Œ ì„¤ì • ì˜µì…˜ 
+					goto Select;
+					break;
+				case 18:
+					ScoreRecord(); // ì ìˆ˜ ë³´ê¸° 
+					goto Select;
+					break;
 				}
 			}
-			else if(key == X || key == ESC || key == LX) break;
+			else if (key == X || key == ESC || key == LX) break;
 		}
 	}
 	system("cls");
 }
 
 /*
-[Ãß°¡¸ñ·Ï]	
-bgm¶Ç´Â È¿°úÀ½ Ãß°¡ 
+[ì¶”ê°€ëª©ë¡]
+bgmë˜ëŠ” íš¨ê³¼ìŒ ì¶”ê°€
 */
 
 int main()
@@ -1473,12 +1478,12 @@ int main()
 	WordSet();
 	UserFileRead();
 	system("title English Typing Game");
-	while(1)
+	while (1)
 	{
 		select = Start();
-		if(select == 1) Game();
-		else if(select == 2) GameOption();
-		else if(select == 3) break;
+		if (select == 1) Game();
+		else if (select == 2) GameOption();
+		else if (select == 3) break;
 	}
 	return 0;
 }
